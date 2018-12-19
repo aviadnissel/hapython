@@ -26,8 +26,6 @@ def find_quote_start(code, search_from=0):
 
 def parse_code(code):
     parsed_code = ""
-    quote_type = None
-    quote_start = 0
     quote_end = 0
     prev_quote_end = 0
 
