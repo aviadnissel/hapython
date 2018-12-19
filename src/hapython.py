@@ -2,11 +2,13 @@ import sys
 import codecs
 
 PRINT = {"הדפס": "print"}
+CONDITIONS = {"אחרת אם": "elif", "אחרת": "else", "אם": "if", "וגם": "and", "או": "or"}
 
-PARSING = [PRINT]
+PARSING = [PRINT, CONDITIONS]
 
 
 def parse_code(code):
+    # TODO Only repalce outside of ""
     parsed_code = []
     for line in code:
         for parsing in PARSING:
@@ -17,8 +19,7 @@ def parse_code(code):
 
 
 def execute_code(code):
-    for line in code:
-        exec(line)
+    exec("\n".join(code))
 
 
 def main():
