@@ -11,12 +11,11 @@ class TestParseCode(unittest.TestCase):
 def test_generator(base_filename):
     def test_parse(self):
         with codecs.open("../hpyfiles/" + base_filename + ".hpy", "r", encoding="utf-8") as hpy_file:
-            hpy_code = hpy_file.readlines()
+            hpy_code = hpy_file.read()
         with codecs.open("../pyfiles/" + base_filename + ".py", "r", encoding="utf-8") as py_file:
-            expected_parsed_code = py_file.readlines()
+            expected_parsed_code = py_file.read()
         actual_parsed_code = hapython.parse_code(hpy_code)
-        for i in range(len(actual_parsed_code)):
-            self.assertEqual(actual_parsed_code[i], expected_parsed_code[i])
+        self.assertEqual(actual_parsed_code, expected_parsed_code)
     return test_parse
 
 

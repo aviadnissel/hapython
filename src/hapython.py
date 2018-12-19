@@ -9,17 +9,14 @@ PARSING = [PRINT, CONDITIONS]
 
 def parse_code(code):
     # TODO Only repalce outside of ""
-    parsed_code = []
-    for line in code:
-        for parsing in PARSING:
-            for command in parsing.items():
-                line = line.replace(command[0], command[1])
-        parsed_code.append(line)
-    return parsed_code
+    for parsing in PARSING:
+        for command in parsing.items():
+            code = code.replace(command[0], command[1])
+    return code
 
 
 def execute_code(code):
-    exec("\n".join(code))
+    exec(code)
 
 
 def main():
@@ -28,7 +25,7 @@ def main():
         exit(1)
     # TODO add missing file error handling
     # TODO Add encoding detection?
-    code = codecs.open(sys.argv[1], "r", encoding="utf-8").readlines()
+    code = codecs.open(sys.argv[1], "r", encoding="utf-8").read()
     parsed_code = parse_code(code)
     execute_code(parsed_code)
 
