@@ -4,9 +4,9 @@ import codecs
 GENERAL = {"הדפס": "print", "טווח": "range"}
 CONDITIONS = {"אחרת אם": "elif", "אחרת": "else", "אם": "if", "וגם": "and", "או": "or"}
 LOOPS = {"עבור": "for", "בתוך": "in", "כל עוד": "while", "המשך": "continue", "עצור": "break"}
+FUNCTIONS = {"הגדר": "def", "החזר": "return"}
 
-
-PARSING = [GENERAL, CONDITIONS, LOOPS]
+PARSING = [GENERAL, CONDITIONS, LOOPS, FUNCTIONS]
 
 
 def replace_part(part):
